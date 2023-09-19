@@ -11,5 +11,8 @@
   ],
   "icons": {
     "16": "images/icon-16.png"
+  },
+  "action": {
+    "default_popup": "popup.html"
   }
 }
