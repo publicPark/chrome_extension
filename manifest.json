@@ -1,0 +1,15 @@
+{
+  "name": "Pink devil",
+  "description": "Pink devil will do something",
+  "version": "1.0",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "js": ["scripts/content.js"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "icons": {
+    "16": "images/icon-16.png"
+  }
+}
