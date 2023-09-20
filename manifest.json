@@ -13,11 +13,7 @@
     "16": "images/icon-16.png"
   },
   "action": {
-    "default_popup": "popup.html",
-    "default_title": "Click to show an alert"
+    "default_popup": "popup.html"
   },
-  "permissions": ["activeTab", "scripting"],
-  "background": {
-    "service_worker": "test.js"
-  }
+  "host_permissions": ["<all_urls>"]
 }
