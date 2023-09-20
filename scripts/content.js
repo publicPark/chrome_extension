@@ -14,6 +14,7 @@ const run = () => {
     for (let i = 0; i < ads.length; i++) {
       const node = ads[i];
       node.id = "asdf"; // id를 바꿔버린다.
+      // node.style.background = "#333";
       node.innerHTML = savedText; // 자식들 다 없애고 replace.
       console.log(node, `changed! to ${savedText}`);
     }

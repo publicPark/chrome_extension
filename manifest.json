@@ -1,6 +1,6 @@
 {
-  "name": "Pink devil",
-  "description": "Pink devil will do something",
+  "name": "Change ads or something",
+  "description": "Change something to the text you like.",
   "version": "1.0",
   "manifest_version": 3,
   "content_scripts": [
@@ -10,7 +10,7 @@
     }
   ],
   "icons": {
-    "16": "images/icon-16.png"
+    "16": "images/icon-32.png"
   },
   "action": {
     "default_popup": "popup.html"

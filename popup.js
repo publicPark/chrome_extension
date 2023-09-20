@@ -10,19 +10,26 @@ const initStorageCache = chrome.storage.sync.get().then((items) => {
 });
 
 const input_text = document.querySelector("#text");
-saveButton.addEventListener("click", () => {
-  const savedText = input_text.value;
-  console.log("save", savedText);
-  chrome.storage.sync.set({ text: savedText }).then(() => {
-    console.log(`${savedText} is set`);
-  });
-  saveButton.style.display = "none";
-});
 
-input_text.addEventListener("input", () => {
+const hideOrShowButton = () => {
   if (input_text.value === storageCache.text) {
     saveButton.style.display = "none";
   } else {
     saveButton.style.display = "block";
   }
+};
+saveButton.addEventListener("click", () => {
+  const savedText = input_text.value;
+  console.log("save", savedText);
+  chrome.storage.sync.set({ text: savedText }).then(() => {
+    console.log(`${savedText} is set`);
+    storageCache.text = savedText;
+    hideOrShowButton();
+  });
 });
+
+input_text.addEventListener("input", () => {
+  hideOrShowButton();
+});
+
+hideOrShowButton();
