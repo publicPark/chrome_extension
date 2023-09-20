@@ -1,14 +1,28 @@
-//
-const DARK_MODE = "dark-mode";
+const saveButton = document.querySelector("#save-btn");
 
-const initialMode = localStorage.getItem("mode");
-if (initialMode === DARK_MODE) document.body.classList.add(DARK_MODE);
+// text
+const storageCache = { text: "" };
+const initStorageCache = chrome.storage.sync.get().then((items) => {
+  // Copy the data retrieved from storage into storageCache.
+  console.log("test: ", items);
+  Object.assign(storageCache, items);
+  input_text.value = storageCache.text;
+});
 
-const button = document.querySelector("#mode-btn");
-button.addEventListener("click", async () => {
-  console.log("test", document.body.classList);
-  document.body.classList.toggle(DARK_MODE);
-  const isDarkMode = document.body.classList.contains(DARK_MODE);
-  if (isDarkMode) localStorage.setItem("mode", DARK_MODE);
-  else localStorage.removeItem();
+const input_text = document.querySelector("#text");
+saveButton.addEventListener("click", () => {
+  const savedText = input_text.value;
+  console.log("save", savedText);
+  chrome.storage.sync.set({ text: savedText }).then(() => {
+    console.log(`${savedText} is set`);
+  });
+  saveButton.style.display = "none";
+});
+
+input_text.addEventListener("input", () => {
+  if (input_text.value === storageCache.text) {
+    saveButton.style.display = "none";
+  } else {
+    saveButton.style.display = "block";
+  }
 });

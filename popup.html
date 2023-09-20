@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./popup.css" />
   </head>
-  <body>
+  <body class="dark">
     <!-- 이거 js로 여러개 만들려고 -->
     <!-- <template id="li_template">
       <li>
@@ -17,8 +17,41 @@
       </li>
     </template> -->
 
-    <h1>.. test ..</h1>
-    <button id="mode-btn">Moon</button>
+    <section id="section-hello">
+      <h1>TEST</h1>
+      <button id="mode-btn">🌝🌚</button>
+    </section>
+
+    <section id="section-custom">
+      <h2>Change to..</h2>
+      <!-- <button>Text</button> -->
+
+      <div class="input-group">
+        <input
+          type="text"
+          id="text"
+          name="text"
+          required
+          minlength="1"
+          maxlength="20"
+          size="20"
+        />
+      </div>
+      <!-- <div class="input-group">
+        <label for="picture">Choose a picture:</label>
+        <input
+          type="file"
+          id="picture"
+          name="picture"
+          accept="image/png, image/jpeg"
+        />
+      </div> -->
+    </section>
+    <section class="section-save">
+      <button id="save-btn">SAVE</button>
+    </section>
+
     <script src="./popup.js" type="module"></script>
+    <script src="./scripts/dark-mode.js" type="module"></script>
   </body>
 </html>

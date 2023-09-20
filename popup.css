@@ -1,21 +1,21 @@
+:root {
+  font-size: 12px;
+}
+
 body {
   --bg: #eee;
   --bg-accent: #ccc;
   --bg-accent2: #aaa;
   --text-color: #333;
   --text-color2: #555;
-  --accent: #ff4400cc;
-  --accent2: #2979ff;
-  --accent3: #00a152;
+  --accent: #00a152;
 }
 .dark-mode {
   --bg: #121212;
   --bg-accent: #555;
   --text-color: #eee;
   --text-color2: #ccc;
-  --accent: #ff4400;
-  --accent2: #33bfff;
-  --accent3: #00e676;
+  --accent: #00e676;
 }
 
 body {
@@ -23,26 +23,45 @@ body {
   color: var(--text-color);
   margin: 0;
   width: 20rem;
-  padding: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
 }
 
-ul {
-  list-style-type: none;
-  padding-inline-start: 0;
-  margin: 1rem 0;
+h1 {
+  color: var(--accent);
+  font-size: 1.2rem;
 }
 
-li {
-  padding: 0.25rem;
-}
-li:nth-child(odd) {
-  background: #80808030;
-}
-li:nth-child(even) {
-  background: #ffffff;
+h2 {
+  font-size: 1rem;
+  font-weight: normal;
 }
 
-h3,
-p {
-  margin: 0;
+button {
+  font-size: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 2px solid var(--accent);
+  background-color: var(--accent);
+  color: var(--bg);
+  font-weight: bold;
+}
+button:hover {
+  opacity: 0.8;
+}
+
+section {
+  padding-bottom: 1rem;
+}
+
+/* */
+.input-group {
+  padding: 0.5rem 0;
+}
+.input-group input {
+  border: 2px solid var(--accent);
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
