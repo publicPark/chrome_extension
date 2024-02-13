@@ -1,9 +1,13 @@
 {
-  "name": "Change ads or something",
-  "description": "Change something to the text you like.",
+  "name": "Change what you hate into what you like",
+  "description": "Change the things to the text you like.",
   "version": "1.0",
   "manifest_version": 3,
   "content_scripts": [
+    {
+      "js": ["scripts/_global.js"],
+      "matches": ["<all_urls>"]
+    },
     {
       "js": ["scripts/content.js"],
       "matches": ["<all_urls>"]

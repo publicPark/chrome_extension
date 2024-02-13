@@ -10,36 +10,53 @@
     <!-- 이거 js로 여러개 만들려고 -->
     <template id="li_template">
       <li>
-        <a>
-          <h3 class="title">Title</h3>
-          <p class="classname">Class name</p>
-        </a>
+        <input
+          type="text"
+          class="hate"
+          name="hate"
+          required
+          minlength="1"
+          maxlength="100"
+        />
       </li>
     </template>
 
     <section id="section-hello">
-      <h1>TEST</h1>
-      <button id="mode-btn">테스트</button>
+      <h1>Change what you hate into what you like</h1>
+      <button id="mode-btn">TEST</button>
     </section>
 
     <section id="section-custom">
-      <h2>Change to..</h2>
+      <h2>Change</h2>
+      <ul></ul>
+
+      <div class="section-save">
+        <button id="save-selector-btn">SAVE</button>
+        <button id="init-selector-btn">INIT</button>
+      </div>
+    </section>
+
+    <section id="section-custom">
+      <h2>into..</h2>
 
       <div class="input-group">
-        <input
+        <!-- <input
           type="text"
           id="text"
           name="text"
           required
           minlength="1"
-          maxlength="1000"
-        />
+          maxlength="100"
+        /> -->
+        <textarea id="text" name="text" rows="4"></textarea>
+      </div>
+
+      <div class="section-save">
+        <button id="save-btn">SAVE</button>
       </div>
     </section>
-    <section class="section-save">
-      <button id="save-btn">SAVE</button>
-    </section>
 
+    <script src="./scripts/_global.js"></script>
     <script src="./popup.js" type="module"></script>
     <script src="./scripts/dark-mode.js" type="module"></script>
   </body>

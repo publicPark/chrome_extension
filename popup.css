@@ -59,7 +59,26 @@ section {
 .input-group {
   padding: 0.5rem 0;
 }
-.input-group input {
+
+.input-group textarea {
+  /* width: 16rem; */
+  border: 2px solid var(--accent);
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  resize: none;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+}
+
+input {
   border: 2px solid var(--accent);
   font-size: 1rem;
   padding: 0.5rem;
