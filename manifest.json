@@ -1,6 +1,6 @@
 {
   "name": "Change what you hate into what you like",
-  "description": "Change the things to the text you like.",
+  "description": "니가 좋아하는 문구로 바꿔봐",
   "version": "1.0",
   "manifest_version": 3,
   "content_scripts": [
@@ -14,7 +14,8 @@
     }
   ],
   "icons": {
-    "16": "images/icon-32.png"
+    "32": "images/icon-32.png",
+    "64": "images/icon-64.jpg"
   },
   "action": {
     "default_popup": "popup.html"

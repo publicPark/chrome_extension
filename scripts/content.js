@@ -3,6 +3,7 @@
 const storageCache = {
   selectorList: BAD_LIST_DEFAULT,
   text: GOOD_TEXT_DEFAULT,
+  isOff: false,
 };
 const initStorageCache = chrome.storage.sync.get().then((items) => {
   // Copy the data retrieved from storage into storageCache.
@@ -13,6 +14,9 @@ const initStorageCache = chrome.storage.sync.get().then((items) => {
 
 // 싫어하는 것 찾아서 원하는 걸로 바꿔주기
 const run = () => {
+  if (storageCache.isOff) {
+    return;
+  }
   let selectorString = "";
   for (const [i, selector] of storageCache.selectorList.entries()) {
     if (i === storageCache.selectorList.length - 1) {
@@ -29,6 +33,7 @@ const run = () => {
     const savedText = storageCache.text;
     for (let i = 0; i < ads.length; i++) {
       const node = ads[i];
+      if (node.id === CHANGED_ID) return;
       count++;
       node.id = CHANGED_ID; // id를 바꿔버린다.
       node.style.whiteSpace = "pre-line";
@@ -37,17 +42,19 @@ const run = () => {
       node.innerHTML = savedText; // 자식들 다 없애고 replace.
     }
   }
-  // testlog(`${count} changed!`);
+  testlog(`${count} running!`);
 };
 
 chrome.storage.onChanged.addListener((changes, namespace) => {
   for (let [key, { oldValue, newValue }] of Object.entries(changes)) {
-    console.log(
+    testlog(
       `Storage key "${key}" in namespace "${namespace}" changed.`,
       `Old value was "${oldValue}", new value is "${newValue}".`
     );
     storageCache[key] = newValue;
-    testlog("storageCache", storageCache);
+    // testlog("storageCache", storageCache);
+    if (key === "isOff" && newValue === true) {
+      location.reload(); // 새로고침
+    }
   }
-  run();
 });

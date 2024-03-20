@@ -5,6 +5,7 @@ const saveSelectorButton = document.querySelector("#save-selector-btn");
 const initSelectorButton = document.querySelector("#init-selector-btn");
 const saveButton = document.querySelector("#save-btn");
 const input_text = document.querySelector("#text");
+const checkbox_onoff = document.querySelector("#cb-off");
 
 // import { BAD_LIST_DEFAULT, GOOD_TEXT_DEFAULT } from "./scripts/_global.js";
 // 아쉽게도 모듈화 불가. 코드가 좀 보기 불편하게 되겠습니다.
@@ -13,6 +14,7 @@ const input_text = document.querySelector("#text");
 const storageCache = {
   selectorList: BAD_LIST_DEFAULT,
   text: GOOD_TEXT_DEFAULT,
+  isOff: false,
 };
 
 const initStorageCache = chrome.storage.sync.get().then((items) => {
@@ -34,6 +36,13 @@ const initStorageCache = chrome.storage.sync.get().then((items) => {
     elements.add(element);
   }
   document.querySelector("ul").append(...elements);
+
+  // onoff
+  if (storageCache.isOff) {
+    checkbox_onoff.checked = true;
+  } else {
+    checkbox_onoff.checked = false;
+  }
 });
 
 // 버튼
@@ -86,4 +95,10 @@ saveButton.addEventListener("click", () => {
 
 input_text.addEventListener("input", () => {
   hideOrShowButton();
+});
+
+checkbox_onoff.addEventListener("change", function () {
+  const isChecked = this.checked;
+  testlog("test", this.checked);
+  chrome.storage.sync.set({ isOff: isChecked }).then(() => {});
 });
